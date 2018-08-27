@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="main">
+    <head>
+        <title>Zona deportiva</title>
+        <meta charset="utf-8"/>
+        <meta name= "viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="css/style.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.7.2/angular-cookies.js"></script>
+        <script src="https://code.angularjs.org/1.7.2/angular-resource.js"></script>
+        <script src="js/aplicacion.js"></script>
+    </head>
+    <body ng-controller="loginController">
+        <div class="ingreso">
+            <form>
+                <h1>Ingreso</h1>
+                <div class="form-group row">
+                    <label for="inputEmail" class="form-control-plaintext col-sm-3 col-form-label">Email:</label>
+                    <div class="col-sm-9">
+                        <input type="email" name="email" class="form-control-plaintext" id="inputEmail" placeholder="email@example.com" required="" ng-model="datos.email"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Password:</label>
+                    <div class="col-sm-9">
+                        <input type="password" name="password" class="form-control-plaintext" id="inputPassword" placeholder="Password" required="" ng-model="datos.contra"/>
+                    </div>
+                </div>
+                <div id="ad_bt">
+                    <button type="submit" class="btn btn-primary" ng-click="login()">Login</button>
+                    <a  href="registro.html">Registrar</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

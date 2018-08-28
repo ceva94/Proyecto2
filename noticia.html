@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="main">
+    <head>
+        <title>Zona deportiva</title>
+        <meta charset="utf-8"/>
+        <meta name= "viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Finger%20Paint" rel='stylesheet'/>
+        <link href="css/style.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.7.2/angular-cookies.js"></script>
+        <script src="https://code.angularjs.org/1.7.2/angular-resource.js"></script>
+        <script src="js/aplicacion.js"></script>
+    </head>
+    <body ng-controller="noticiaController">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid" id="cabecera">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img id="logo" alt="no cargó" src="img/zs.jpg"/>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse " id="myNavbar">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="active">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="descripcion.html">Descripcion</a>
+                        </li>
+                        <li>
+                            <a href="deportes.html">Deportes</a>
+                        </li>
+                        <li>
+                            <a href="eventos.html">Eventos</a>
+                        </li>
+                        <li>
+                            <a href="quienes_somos.html">¿Quiénes somos?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container" id="cuerpo">
+            <div>
+                <h1 id = "Titulo">Noticias</h1>
+            </div>
+            <a id="cr" class="btn btn-primary" href="/nuevo_equipo.html">CrearNotica</a>
+            <div ng-repeat="noticia in noticias">
+                <div class = "row deportes">
+                    <div class="col-lg-8">
+                        <div class ="datosDeporte" id= "{{ equipo.id_Equipo }}">
+                            <div>
+                                <p>Titulo:</p>
+                                <p>{{ noticia.titulo }}</p>
+                            </div>
+                            <div>
+                                <p>Noticia:</p>
+                                <p>{{ noticia.texto }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "col-lg-4">
+                        <div class="botones">
+                            <button class="btn btn-primary" ng-click="">Editar Equipo</button>
+                            <button class="btn btn-primary" ng-click="">Eliminar Equipo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>

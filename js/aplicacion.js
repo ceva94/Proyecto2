@@ -77,7 +77,6 @@ app.controller('registroController',
 app.controller('entrenadorController',
 	['$scope','$http','$cookies','$window',function($scope,$http,$cookies,$window){
 		$scope.equipos=[];
-		$scope.id_equipo="";
 		var config = {
 			method:'GET',
 			url:$scope.direc+"/api/auth/equipos-user",
@@ -115,24 +114,6 @@ app.controller('entrenadorController',
 			});}
 
 
-
-		if($scope.id_equipo!==""){
-			var config = {
-				method:'GET',
-				url:$scope.direc+"/api/auth/equipo/" +$scope.id_equipo,
-				dataType: "json",
-				headers:{
-					'Authorization':'Bearer ' + $cookies.get('remember') ,
-				}
-			};
-			$http(config).then(function(data){
-				console.log(data);
-
-			},function(data){
-				console.log(data);
-			});
-
-		}
 
 		$scope.nuevo=function(){
 			var config = {
@@ -218,7 +199,8 @@ app.controller('entrenadorController',
 
 		$scope.verNo=function(id){
 			$cookies.put("id",id);
-			$window.open("noticias.html","_self");
+			$window.open("noticia.html","_self");
+
 
 
 		}
@@ -226,6 +208,24 @@ app.controller('entrenadorController',
 	}
 ]);
 
-app.controller("noticiaController",[['$scope','$http','$cookies','$window',function($scope,$http,$cookies,$window){
-	
+app.controller("noticiaController",['$scope','$http','$cookies','$window',function($scope,$http,$cookies,$window){
+
+	$scope.noticias=[];
+		var config = {
+			method:'GET',
+			url:$scope.direc+"/api/auth/noticias-equipo/"+$cookies.get('id') ,
+			dataType: "json",
+			headers:{
+				'Authorization':'Bearer ' + $cookies.get('remember') ,
+			}
+		};
+		$http(config).then(
+			function(data){
+				$scope.noticias = data.data ;
+				console.log($scope.noticias.data);
+			},
+			function(data){console.log(data);});
+
+
+
 }]);

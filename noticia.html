@@ -58,7 +58,7 @@
             <div ng-repeat="noticia in noticias">
                 <div class = "row deportes">
                     <div class="col-lg-8">
-                        <div class ="datosDeporte" id= "{{ equipo.id_Equipo }}">
+                        <div class ="datosDeporte" id= "{{ noticia.id_Noticia }}">
                             <div>
                                 <p>Titulo:</p>
                                 <p>{{ noticia.titulo }}</p>
@@ -71,8 +71,8 @@
                     </div>
                     <div class = "col-lg-4">
                         <div class="botones">
-                            <button class="btn btn-primary" ng-click="">Editar Equipo</button>
-                            <button class="btn btn-primary" ng-click="">Eliminar Equipo</button>
+                            <button class="btn btn-primary" ng-click="en(noticia.id_Noticia)">Editar Noticia</button>
+                            <button class="btn btn-primary" ng-click="eliminarNoticia(noticia.id_Noticia,noticia)">Eliminar Noticia</button>
                         </div>
                     </div>
                 </div>

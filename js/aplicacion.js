@@ -130,8 +130,8 @@ app.controller('entrenadorController',
 			};
 			$http(config).then(function(data){
 				console.log(data);
-				$scope.equipo="";
-				$scope.nombreDeporte="";
+				$scope.nequipo="";
+				$scope.nnombreDeporte="";
 				$window.open("entrenador.html","_self");
 
 			},function(data){
@@ -176,7 +176,6 @@ app.controller('entrenadorController',
 		$scope.vaciar=function(){
 			$cookies.remove('id');
 			$window.open("entrenador.html","_self");
-
 		}
 
 		$scope.eliminar=function(a,equipo){
@@ -211,21 +210,119 @@ app.controller('entrenadorController',
 app.controller("noticiaController",['$scope','$http','$cookies','$window',function($scope,$http,$cookies,$window){
 
 	$scope.noticias=[];
+	console.log($cookies.get('idNoticia'));
+	console.log($cookies.get('id'));
+
+	var config = {
+		method:'GET',
+		url:$scope.direc+"/api/auth/noticias-equipo/"+$cookies.get('id') ,
+		dataType: "json",
+		headers:{
+			'Authorization':'Bearer ' + $cookies.get('remember') ,
+		}
+	};
+	$http(config).then(
+		function(data){
+			$scope.noticias = data.data ;
+			console.log($scope.noticias);
+		},
+		function(data){console.log(data);});
+
+	var config = {
+		method:'GET',
+		url:$scope.direc+"/api/auth/noticia/" +$cookies.get('idNoticia'),
+		dataType: "json",
+		headers:{
+			'Authorization':'Bearer ' + $cookies.get('remember') ,
+		}
+	};
+	if($cookies.get('idNoticia')){
+		console.log($cookies.get('idNoticia'));
+		$http(config).then(function(data){
+			$scope.titulo=data.data.titulo;
+			$scope.texto=data.data.texto;
+			console.log(data.data);
+		},function(data){
+			console.log(data);
+		});}
+
+	$scope.en = function(id){
+		$cookies.put('idNoticia',id);
+		$window.open("editar_noticia.html","_self");
+	};
+
+	$scope.editNoticia =function(){
 		var config = {
-			method:'GET',
-			url:$scope.direc+"/api/auth/noticias-equipo/"+$cookies.get('id') ,
+			method:'PUT',
+			url:$scope.direc+"/api/auth/noticia/" +$cookies.get('idNoticia'),
 			dataType: "json",
 			headers:{
 				'Authorization':'Bearer ' + $cookies.get('remember') ,
+			},
+			data:{
+				'titulo':$scope.titulo,
+				'texto':$scope.texto
 			}
 		};
-		$http(config).then(
-			function(data){
-				$scope.noticias = data.data ;
-				console.log($scope.noticias.data);
+
+		$http(config).then(function(data){
+			$cookies.remove('idNoticia');
+			console.log(data);
+			$window.alert('Se actualizo la noticia');
+			$window.open("noticia.html","_self");
+			},function(data){
+				console.log(data);
+			});
+		};
+
+	$scope.eliminarNoticia=function(id,noticia){
+		var config = {
+			method:'DELETE',
+			url:$scope.direc+"/api/auth/noticia/"+id,
+			dataType: "json",
+			headers:{
+				'Authorization':'Bearer ' + $cookies.get('remember') ,
+				}
+			};
+			console.log()
+			$http(config).then(
+				function(data){
+					$window.alert("Se elimino noticia");
+					console.log(noticia);
+					var pos =$scope.noticias.indexOf(noticia);
+					$scope.noticias.splice(pos);
+				},
+				function(data){console.log(data);});
+		};
+
+	$scope.vaciar2 =function(){
+		$cookies.remove('idNoticia');
+		$window.open("noticia.html","_self");
+	};
+
+	$scope.nuevaN =function(){
+		var config = {
+			method:'POST',
+			url:$scope.direc+"/api/auth/noticia",
+			dataType: "json",
+			headers:{
+				'Authorization':'Bearer ' + $cookies.get('remember') ,
 			},
-			function(data){console.log(data);});
+			data:{
+				'titulo':$scope.ntitulo,
+				'texto':$scope.ntexto,
+				'idequipo':$cookies.get('id')
+			}
+		};
+		$http(config).then(function(data){
+			console.log(data);
+			$scope.ntitulo="";
+			$scope.ntexto="";
+			$window.open("noticia.html","_self");
 
-
+		},function(data){
+			console.log(data);
+		});
+	}
 
 }]);

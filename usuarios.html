@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="es" ng-app="main">
     <head>
-        <title>Editar equipo</title>
+        <title>Zona deportiva</title>
+        <meta charset="utf-8"/>
         <meta charset="utf-8"/>
         <meta name= "viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Finger%20Paint" rel='stylesheet'/>
+        <script src="js/aplica.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/gallery.css"/>
         <link href="css/style.css" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Antic+Slab" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
         <script src="https://code.angularjs.org/1.7.2/angular-cookies.js"></script>
         <script src="https://code.angularjs.org/1.7.2/angular-resource.js"></script>
         <script src="js/aplicacion.js"></script>
     </head>
-    <body ng-controller="entrenadorController">
+    <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid" id="cabecera">
                 <div class="navbar-header">
@@ -50,29 +53,28 @@
             </div>
         </nav>
         <div class="container" id="cuerpo">
-            <div class="ingreso">
-                <form>
-                    <h1>Datos</h1>
-                    <div class="form-group row">
-                        <label for="nE" class="form-control-plaintext col-sm-3 col-form-label">Nombre:</label>
-                        <div class="col-sm-9">
-                            <input  name="nE" class="form-control-plaintext" id="nE" placeholder="Equipo" required="" ng-model="nequipo"/>
+            <div id="tit">
+                <h1 id="titulo">Nombre Usuario</h1>
+            </div>
+            <div id="contenedordepublicacion">
+                <div id="pccb">
+                    <div id="publicacion">
+                        <p>Publicacion1</p>
+                    </div>
+                    <div id="comentarios">
+                        <div id="comentario">
+                            <p>comentario1</p>
+                        </div>
+                        <div id="comentario">
+                            <p>comentario2</p>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="depor" class="col-sm-3 col-form-label">Deporte:</label>
-                        <div class="col-sm-9">
-                            <input name="depor" class="form-control-plaintext" id="depor" placeholder="Deporte" required="" ng-model="nnombreDeporte"/>
-                        </div>
+                    <div id="caja">
+                        <input type="text" name="username" size="123"/>
+                        <input type="submit" value="Enviar"/>
                     </div>
-                    <div id="ad_bt">
-                        <button type="submit" class="btn btn-primary" ng-click="nuevo()">Crear</button>
-                        <a class="btn btn-primary" href="entrenador.html">Volver</a>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-    <footer></footer>
-</body>
+    </body>
 </html>

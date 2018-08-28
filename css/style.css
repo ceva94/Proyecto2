@@ -463,3 +463,83 @@ div.parrafo > h4 {
 	font-size: 1.3em;
 	margin: 20px 0px 0px 40px;
 }
+
+#pccb{
+ border: black solid;
+}
+
+#contenedordepublicacion{
+ padding:20px; 
+ margin:20px;
+}
+
+#comentarios{
+ border: 1px solid red; 
+ padding:10px; 
+ margin: 10px;
+ 
+}
+
+
+#comentario{	
+ /*border: 1px solid red; */
+ padding: 10px;
+ margin: 10px;
+}
+
+#publicacion{
+ background-color:#f7e6fd;	
+ border: px solid blue;
+ font: bold 90% monospace;
+ padding:10px; 
+ margin:10px;
+ font-size: 23px;	
+}
+
+#caja{
+ padding:10px; 
+ margin:10px;
+}
+
+#boton{
+ padding:10px; 
+ margin:10px;
+ float: right;
+}
+
+#pccb{
+  border: 2px solid black;
+  padding:10px; 
+  margin:10px;
+}
+
+#tit{	
+  text-align:center;
+  padding:5px; 
+  margin:5px;	
+  font-size: 40px;
+}
+
+#contenedordepublicacion{	
+  padding:5px; 
+  margin:5px;
+}
+
+
+#datos{	
+  background-color:#f7e6fd; 	
+  padding:12px;
+  height:75px;	
+  width: 90%;	
+  border: 2px solid black;
+  float:left;
+  font-size: 15px;
+}
+
+#seguir{
+	padding:25px;
+    /*border: 1px solid black; */ 	
+  	float:right;
+}
+
+#cuerpo

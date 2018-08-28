@@ -480,14 +480,17 @@ div.parrafo > h4 {
 	font-weight: bold;
 }
 
-.botones {
-	height: 100%;
-}
-
 .botones button {
 	margin: auto;
 }
 
 #cr {
 	margin-left: 80px;
+}
+
+form textarea {
+	position: relative;
+	width: 80%;
+	display: inline-block;
+	margin-left: 35px;
 }

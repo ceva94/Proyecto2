@@ -58,7 +58,8 @@ form > #ad_bt {
 	margin: 15px 0px;
 }
 
-form button {
+form button,
+form a {
 	width: 50%;
 	margin-bottom: 5px;
 }
@@ -223,7 +224,7 @@ div > a > h3 {
 }
 
 .deportes {
-	margin: 5px 15px;
+	margin: 5px 80px;
 	border: solid black;
 	border-radius: 5px;
 	background-color: white;
@@ -462,4 +463,27 @@ div.parrafo > h4 {
 .bot {
 	font-size: 1.3em;
 	margin: 20px 0px 0px 40px;
+}
+
+.equipos {
+	border-radius: 1px;
+	border: black 1px;
+	width: 100%;
+}
+
+.datosDeporte p {
+	display: inline-block;
+	margin: 2px 6px;
+}
+
+.datosDeporte .tit {
+	font-weight: bold;
+}
+
+.botones button {
+	margin-top: 10px;
+}
+
+#cr {
+	margin-left: 80px;
 }
